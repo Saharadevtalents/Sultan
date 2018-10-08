@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+		<record id="export_excel_file_view" model="ir.ui.view">
+            <field name="name">excel.file.export.report</field>
+            <field name="model">export.excel.report</field>
+            <field name="arch" type="xml">
+            <form string="Download File">
+                <div>
+						<h2>Generate File</h2>
+						<field name="name" invisible="1"/>
+						<p>
+							export file:
+							<field name="data" readonly="1" filename="name" />
+						</p>
+					</div>         
+                <footer>
+					<button string="Close" class="oe_highlight" special="cancel" />
+				</footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="view_product_update_form" model="ir.ui.view">
+            <field name="name">product.update.view</field>
+            <field name="model">product.update</field>
+            <field name="arch" type="xml">
+                <form string="Update Products">
+						<group>
+							<group>
+								<field name="name" />
+								<field name="file" />
+							</group>
+							<group>
+							</group>
+						</group>
+						<field name="description" placeholder="Description"
+							nolabel="1" />
+					<footer>
+                        <button name="update_list_price" string="Update List price" type="object" class="btn-primary"/>
+                        <button name="update_barcode_product" string="Update Barcode" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+         <act_window name="Update Product Price"
+            res_model="product.update"
+            view_mode="form"
+            target="new"
+            id="action_product_update_price"/>
+
+        <menuitem
+                id="menu_product_update_prices" name="Products Update"
+                parent="base.menu_administration"
+                sequence="10" action="action_product_update_price"/>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_import_form" model="ir.ui.view">
+            <field name="name">product.import</field>
+            <field name="model">product.import</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <button name="import_all_products" string="Import Product" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Product import"
+                    res_model="product.import"
+                    view_mode="form"
+                    target="new"
+                    id="action_product_import"/>
+
+        <menuitem
+                id="menu_product_import" name="Products Import"
+                parent="base.menu_administration"
+                sequence="3" action="action_product_import"/>
+    </data>
+</odoo>

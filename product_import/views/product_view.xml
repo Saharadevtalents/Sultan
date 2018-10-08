@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_product_product_inherit_listprice_variant" model="ir.ui.view">
+            <field name="name">product.product.listprice.variant.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lst_price']" position="attributes">
+                    <attribute name="name">list_price</attribute>
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_product_product_inherit_listprice_variant_easy" model="ir.ui.view">
+            <field name="name">product.product.listprice.variant.easy.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group/field[@name='lst_price']" position="attributes">
+                   <attribute name="name">list_price</attribute>
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
